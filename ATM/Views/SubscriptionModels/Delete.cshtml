@@ -1,0 +1,48 @@
+﻿@model ATM.Models.SubscriptionModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Unsubscribe</h2>
+
+<h3>Are you sure you want to unsubscribe?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckingAccount.AccountNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckingAccount.AccountNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateSubscribed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateSubscribed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

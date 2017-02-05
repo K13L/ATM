@@ -1,0 +1,44 @@
+﻿@model ATM.Models.SubscriptionModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Subscriptions</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckingAccount.AccountNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckingAccount.AccountNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateSubscribed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateSubscribed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index","Home") 
+    @*<a href="@Url.Action("Create", "SubscriptionModels", new { checkingAccountId = ViewBag.CheckingAccountId })" class="btn btn-primary btn-large btn-block"><span class="glyphicon glyphicon-subscript"></span> Subscribe</a>*@
+
+</p>

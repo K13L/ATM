@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ATM.Models.Voucher>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Vouchers</h2>
+
+<p>
+    @Html.ActionLink("Create New Voucher", "Create",new {checkingAccountId = ViewBag.CheckingAccountId})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckingAccount.AccountNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateIssued)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.expiryDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheckingAccount.AccountNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateIssued)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.expiryDate)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new {checkingAccountId=item.CheckingAccountId })
+          
+        </td>
+    </tr>
+}
+
+</table>

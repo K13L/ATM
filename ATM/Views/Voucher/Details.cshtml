@@ -1,0 +1,41 @@
+﻿@model ATM.Models.Voucher
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Voucher</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckingAccount.AccountNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckingAccount.AccountNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateIssued)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateIssued)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.expiryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.expiryDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index","Home")
+</p>
