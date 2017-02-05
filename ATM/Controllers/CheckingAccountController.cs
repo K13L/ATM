@@ -80,40 +80,52 @@ namespace ATM.Controllers
         // GET: CheckingAccount/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var checkingAccount = db.CheckingAccounts.Find(id);
+            return View(checkingAccount);
         }
 
         // POST: CheckingAccount/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id,  CheckingAccount checkingAccount)
         {
             try
             {
-                // TODO: Add update logic here
+                var check = db.CheckingAccounts.Where(x => x.Id == id).First();
+                check.FirstName = checkingAccount.FirstName;
+                check.LastName = checkingAccount.LastName;
+                check.DailyLimit = checkingAccount.DailyLimit;
+                check.Balance = checkingAccount.Balance;
+                db.Entry(check).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("List","CheckingAccount");
             }
             catch
             {
-                return View();
+               return RedirectToAction("Index", "Home");
+                //return View();
             }
         }
 
         // GET: CheckingAccount/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var checkingAccount = db.CheckingAccounts.Find(id);
+            return View(checkingAccount);
         }
 
         // POST: CheckingAccount/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, CheckingAccount checkingAccount)
         {
             try
             {
                 // TODO: Add delete logic here
+                var check = db.CheckingAccounts.Where(x=>x.Id == id).First();
+                db.CheckingAccounts.Remove(check);
+                db.SaveChanges();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
             catch
             {

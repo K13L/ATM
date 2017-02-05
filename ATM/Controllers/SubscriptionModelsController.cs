@@ -150,9 +150,9 @@ namespace ATM.Controllers
         // POST: SubscriptionModels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id, SubscriptionModel subscriptionModel)
         {
-            SubscriptionModel subscriptionModel = db.SubscriptionModels.Find(id);
+            //SubscriptionModel subscriptionModel = db.SubscriptionModels.Find(id);
             db.SubscriptionModels.Remove(subscriptionModel);
             db.SaveChanges();
             return RedirectToAction("Index");
